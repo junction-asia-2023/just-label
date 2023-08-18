@@ -10,7 +10,8 @@
     "lint:eslint": "eslint src --ext ts,tsx --report-unused-disable-directives",
     "lint:prettier": "prettier --list-different \"src/**/*.{ts,tsx}\"",
     "lint": "npm-run-all -p --print-label \"lint:**\"",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.32.6",
