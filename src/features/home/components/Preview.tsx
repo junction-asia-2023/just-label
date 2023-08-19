@@ -1,23 +1,22 @@
 import { FunctionComponent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import activeLogo from '/svg/active.svg';
 import rightIcon from '/svg/right.svg';
+import previewIcon from '/svg/preview.svg';
 
 import { URL } from '../../shared/constants/url';
 
-const Active: FunctionComponent = () => {
+const Preview: FunctionComponent = () => {
   const navigate = useNavigate();
-  const handleActiveClick = () => navigate(URL.setting);
+  const handlePreviewClick = () => navigate(URL.preview);
 
   return (
-    <section className="active-box" onClick={handleActiveClick}>
+    <section className="preview-box" onClick={handlePreviewClick}>
       <div className="icon-box">
-        <img className="icon" src={activeLogo} alt="active icon" />
+        <img className="icon" src={previewIcon} alt="preview icon" />
       </div>
       <div className="content">
-        <div className="title">Active</div>
-        <div className="description">Expressing myself</div>
+        <div className="title">CardMe Preview</div>
       </div>
       <div>
         <img src={rightIcon} alt="next" />
@@ -26,4 +25,4 @@ const Active: FunctionComponent = () => {
   );
 };
 
-export default Active;
+export default Preview;
