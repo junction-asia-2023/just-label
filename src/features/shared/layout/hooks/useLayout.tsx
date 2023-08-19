@@ -1,17 +1,22 @@
 import { useAtom } from 'jotai';
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { userAtom } from '../../../login/atom';
 import { getItem } from '../../utils/storage';
+import { URL } from '../../constants/url';
 
 const useLayout = () => {
-  const [user] = useAtom(userAtom);
+  const [, setUser] = useAtom(userAtom);
+  const navigate = useNavigate();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const user = getItem('user');
     if (!user) {
-      // TODO: Redirect Login
+      navigate(URL.login);
+      return;
     }
+    setUser({ ...user });
   }, []);
 };
 
