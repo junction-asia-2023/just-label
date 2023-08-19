@@ -19,7 +19,7 @@ const LayoutTitle: FunctionComponent = () => {
 
   return (
     <div className="layout-title under-line">
-      <div className="left">
+      <div className={`left ${back ? 'has' : ''}`}>
         {back && (
           <img src={backLogo} alt="Back Logo" onClick={handleBackClick} />
         )}

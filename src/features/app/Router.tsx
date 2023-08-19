@@ -12,6 +12,7 @@ import SettingContainer from '../setting/Container';
 import ErrorContainer from '../shared/error/Container';
 import NotFound from '../shared/error/notfound/NotFound';
 import PreviewContainer from '../preview/Container';
+import EventContainer from '../event/Container';
 
 const router = createRoutesFromElements(
   <Route
@@ -27,6 +28,7 @@ const router = createRoutesFromElements(
     <Route path="login" element={<LoginContainer />} />
     <Route path="setting" element={<SettingContainer />} />
     <Route path="preview" element={<PreviewContainer />} />
+    <Route path="event" element={<EventContainer />} />
     <Route path="*" element={<NotFound />} />
   </Route>,
 );
