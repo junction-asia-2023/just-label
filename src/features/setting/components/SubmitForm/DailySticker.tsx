@@ -5,6 +5,8 @@ import { Control } from 'react-hook-form';
 import { Inputs } from '../../types';
 import { stickerList, wordStickerText } from '../../constants';
 
+import moodBad from '/png/mood_BAD.png';
+import moodGood from '/png/mood_GOOD.png';
 import '../../style/index.scss';
 
 type DailyStickerProps = {
@@ -38,7 +40,7 @@ const DailySticker: FunctionComponent<DailyStickerProps> = ({ control }) => {
                   }}
                 />
                 <img
-                  src={`/png/${sticker}.png`}
+                  src={sticker === 'mood_BAD' ? moodBad : moodGood}
                   className="logo react"
                   alt="React logo"
                 />
