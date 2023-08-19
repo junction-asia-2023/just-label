@@ -1,11 +1,19 @@
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
+import { useAtom } from 'jotai';
 
 import reactLogo from '../../assets/react.svg';
 
 import viteLogo from '/vite.svg';
 
+import { titleAtom } from '../shared/layout/atom';
+
 const HomeContainer = () => {
   const [count, setCount] = useState(0);
+  const [, setTitle] = useAtom(titleAtom);
+
+  useLayoutEffect(() => {
+    setTitle({ title: 'CardMe' });
+  }, []);
 
   return (
     <>
