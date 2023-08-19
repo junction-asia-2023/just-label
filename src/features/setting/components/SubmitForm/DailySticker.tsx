@@ -18,7 +18,7 @@ const DailySticker: FunctionComponent<DailyStickerProps> = ({ control }) => {
     <div className="setting-sticker-container">
       <span className="setting-sticker-title">{wordStickerText}</span>
       <Controller
-        name="mude"
+        name="mood"
         control={control}
         rules={{ required: true }}
         render={({ field }) => (
