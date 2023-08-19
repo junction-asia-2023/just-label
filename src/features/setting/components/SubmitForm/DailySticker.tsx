@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form';
 import { Control } from 'react-hook-form';
 
 import { Inputs } from '../../types';
-import { stickerList, wordStickerText } from '../../constants';
+import { stickerList, stickerText, wordStickerText } from '../../constants';
 
 import moodBad from '/png/mood_BAD.png';
 import moodGood from '/png/mood_GOOD.png';
@@ -23,12 +23,19 @@ const DailySticker: FunctionComponent<DailyStickerProps> = ({ control }) => {
         rules={{ required: true }}
         render={({ field }) => (
           <div className="setting-sticker-box" {...field}>
-            {stickerList.map((sticker) => (
+            {stickerList.map((sticker, idx) => (
               <label
                 htmlFor={sticker}
                 key={sticker}
                 className="setting-sticker-width"
               >
+                {field.value === sticker && (
+                  <div className="setting-sticker-picked">
+                    <span className="setting-sticker-text">
+                      {stickerText[idx]}
+                    </span>
+                  </div>
+                )}
                 <input
                   type="radio"
                   id={sticker}

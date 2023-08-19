@@ -12,22 +12,33 @@ const Container = () => {
   const [, setTitle] = useAtom(titleAtom);
   const [, setBottomBtn] = useAtom(bottomBtnAtom);
 
-  const { handlePreviewClick, handleSubmit, onSubmit, register, control } =
-    useSetting();
+  const {
+    handlePreviewClick,
+    handleSubmit,
+    onSubmit,
+    register,
+    control,
+    formState,
+  } = useSetting();
 
   useLayoutEffect(() => {
     setTitle({ title: 'Active', back: true });
-    setBottomBtn({ text: 'Save' });
-
+    setBottomBtn({
+      text: 'Save',
+      disable: !formState.isValid ? true : false,
+    });
     return () => {
       setTitle({});
       setBottomBtn({});
     };
-  }, []);
+  }, [formState.isValid]);
 
   return (
     <div className="setting-container">
-      <PreviewSection handlePreviewClick={handlePreviewClick} />
+      <PreviewSection
+        handlePreviewClick={handlePreviewClick}
+        formState={formState}
+      />
       <SubmitForm
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}

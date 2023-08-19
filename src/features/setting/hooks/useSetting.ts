@@ -12,7 +12,7 @@ import badMood from '/png/badge_bad.png';
 import { dummyEsl, labelsImagePushPath, token } from '../constants';
 
 const useSetting = () => {
-  const { register, handleSubmit, control } = useForm<Inputs>({
+  const { register, handleSubmit, control, formState } = useForm<Inputs>({
     defaultValues: {
       mood: '',
       comment: '',
@@ -86,6 +86,7 @@ const useSetting = () => {
     control,
     onSubmit,
     handlePreviewClick,
+    formState,
   };
 };
 
