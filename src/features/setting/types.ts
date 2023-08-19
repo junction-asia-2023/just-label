@@ -1,4 +1,4 @@
 export type Inputs = {
-  mude: string;
+  mood: string;
   comment: string;
 };

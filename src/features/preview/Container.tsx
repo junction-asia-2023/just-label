@@ -6,7 +6,6 @@ import { bottomBtnAtom, titleAtom } from '../shared/layout/atom';
 import './style/index.scss';
 
 import BottomText from './components/BottomText';
-import LabelSender from './components/LabelSender';
 import ChooseType from './components/ChooseType';
 import PreviewImage from './components/PreviewImage';
 
@@ -28,7 +27,6 @@ const Container = () => {
       <ChooseType />
       <PreviewImage />
       <BottomText />
-      <LabelSender>.</LabelSender>
     </div>
   );
 };
