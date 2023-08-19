@@ -3,33 +3,29 @@ import { FunctionComponent } from 'react';
 import useLogin from './hooks/useLogin';
 
 const LoginContainer: FunctionComponent = () => {
-  const {
-    email,
-    handleEmailChange,
-    password,
-    handlePasswordChange,
-    error,
-    handleSubmitClick,
-  } = useLogin();
+  const { errors, register, handleSubmit, onSubmit } = useLogin();
 
   return (
-    <div>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div>Login</div>
       <input
         type="text"
-        value={email}
         placeholder="Insert your email"
-        onChange={handleEmailChange}
+        {...register('email', { required: true })}
+        area-invalid={errors.email ? 'true' : 'false'}
       />
       <input
         type="password"
-        value={password}
         placeholder="Insert your password"
-        onChange={handlePasswordChange}
+        {...register('password', { required: true })}
+        aria-invalid={errors.password ? 'true' : 'false'}
       />
-      {error && <span>Please check your email or password</span>}
-      <button onClick={handleSubmitClick}>submit</button>
-    </div>
+      {(errors.email || errors.password) && (
+        <div>Please enter your email or password</div>
+      )}
+      {errors.dataError && <div>{errors.dataError.message}</div>}
+      <input type="submit" />
+    </form>
   );
 };
 

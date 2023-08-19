@@ -1,32 +1,29 @@
-import { ChangeEventHandler, ReactEventHandler, useState } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useAtom } from 'jotai';
 import { useNavigate } from 'react-router-dom';
 
 import { setItem } from '../../shared/utils/storage';
-import { DummyUser } from '../type';
+import { DummyUser, InputKey } from '../type';
 import { DUMMY_USER } from '../constants';
 import { userAtom } from '../atom';
 import { URL } from '../../shared/constants/url';
 
 const useLogin = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
   const [, setUser] = useAtom(userAtom);
 
-  const navigate = useNavigate();
-
-  const handleEmailChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setEmail(e.target.value);
-    setError(false);
-  };
-  const handlePasswordChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setPassword(e.target.value);
-    setError(false);
-  };
-  const handleSubmitClick: ReactEventHandler<HTMLButtonElement> = () => {
-    if (DUMMY_USER.email !== email || DUMMY_USER.password !== password) {
-      setError(true);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<InputKey>();
+  const onSubmit: SubmitHandler<InputKey> = (data) => {
+    if (
+      DUMMY_USER.email !== data.email ||
+      DUMMY_USER.password !== data.password
+    ) {
+      alert("'No user information'");
+      // TODO: setError 띄웠다가 다시 삭제하는 방법
+      // setError('dataError', { message: 'No user information' });
       return;
     }
     const curUser: DummyUser = { ...DUMMY_USER };
@@ -36,13 +33,13 @@ const useLogin = () => {
     navigate(URL.home);
   };
 
+  const navigate = useNavigate();
+
   return {
-    email,
-    handleEmailChange,
-    password,
-    handlePasswordChange,
-    error,
-    handleSubmitClick,
+    errors,
+    register,
+    handleSubmit,
+    onSubmit,
   };
 };
 
