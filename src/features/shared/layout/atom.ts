@@ -12,3 +12,5 @@ type BottomBtnAtom = {
   add?: boolean;
 };
 export const bottomBtnAtom = atom<BottomBtnAtom>({});
+
+export const activeSaveAtom = atom<boolean>(false);

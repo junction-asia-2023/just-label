@@ -12,9 +12,6 @@ const Container = () => {
   const [, setBottomBtn] = useAtom(bottomBtnAtom);
   useLayoutEffect(() => {
     setTitle({ title: 'Active', back: true });
-  }, []);
-
-  useLayoutEffect(() => {
     setBottomBtn({ text: 'Save' });
   }, []);
 

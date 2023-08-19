@@ -1,5 +1,5 @@
 export const colorset = ['red', 'yellow', 'green'];
-export const stickerList = ['mood_BAD', 'mood_GOOD', 'mood_BAD', 'mood_GOOD'];
+export const stickerList = ['mood_BAD', 'mood_GOOD'];
 
 export const previewTitleText = 'What is the Active Setting?';
 export const previewSubText =

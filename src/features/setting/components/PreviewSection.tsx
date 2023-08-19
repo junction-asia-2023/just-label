@@ -7,7 +7,7 @@ const PreviewSection = () => {
     <div className="setting-preview-container">
       <div className="setting-preview-title-text">{previewTitleText}</div>
       <div className="setting-preview-sub-text">{previewSubText}</div>
-      <button className="setting-preview-button" onClick={handlePreviewClick}>
+      <button className="setting-preview-btn" onClick={handlePreviewClick}>
         Preview
       </button>
     </div>

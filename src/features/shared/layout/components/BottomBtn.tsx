@@ -1,18 +1,19 @@
 import { useAtom } from 'jotai';
 import { FunctionComponent } from 'react';
 
-import { bottomBtnAtom } from '../atom';
+import { activeSaveAtom, bottomBtnAtom } from '../atom';
 
 import addLogo from '/svg/add.svg';
 
 const LayoutBottomBtn: FunctionComponent = () => {
   const [{ text, add }] = useAtom(bottomBtnAtom);
+  const [, setActiveSave] = useAtom(activeSaveAtom);
 
   if (!text) return <div className="layout-bottom" />;
 
   return (
     <div className="layout-bottom">
-      <div className="layout-bottom-btn">
+      <div className="layout-bottom-btn" onClick={() => setActiveSave(true)}>
         <div className="left">
           {add && <img src={addLogo} alt="Add Logo" width={20} height={20} />}
         </div>
