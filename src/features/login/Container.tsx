@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
 import useLogin from './hooks/useLogin';
-import logo from './logo.png';
+import logo from './logo.svg';
 import './style/index.scss';
 
 const LoginContainer: FunctionComponent = () => {
@@ -15,7 +15,7 @@ const LoginContainer: FunctionComponent = () => {
           <label>Email</label>
           <input
             type="text"
-            placeholder="Insert your email"
+            placeholder="Please enter your email"
             {...register('email', { required: true })}
             area-invalid={errors.email ? 'true' : 'false'}
           />
@@ -25,7 +25,7 @@ const LoginContainer: FunctionComponent = () => {
           <label>Password</label>
           <input
             type="password"
-            placeholder="Insert your password"
+            placeholder="Please enter your password"
             {...register('password', { required: true })}
             aria-invalid={errors.password ? 'true' : 'false'}
           />
