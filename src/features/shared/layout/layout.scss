@@ -1,4 +1,42 @@
+@import '../style/color';
+
 .layout-container {
   min-width: 320px;
   max-width: 480px;
+  background-color: $container-color;
+}
+
+.layout-title {
+  display: flex;
+  align-items: center;
+  height: 61px;
+  padding: 8px;
+  gap: 8px;
+
+  &.under-line {
+    border-bottom: 1px solid $bolder-default;
+  }
+
+  .left {
+    width: 48px;
+    height: 48px;
+    padding: 0px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 247px;
+    height: 36px;
+    padding: 6px 8px;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+  }
 }
