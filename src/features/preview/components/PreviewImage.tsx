@@ -23,7 +23,7 @@ const PreviewImage = () => {
             showIndicators={false}
             autoPlay
             infiniteLoop
-            onChange={(index, item) => {
+            onChange={(index) => {
               setCurNum(index);
             }}
           >
