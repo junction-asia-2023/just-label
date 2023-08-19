@@ -4,7 +4,6 @@ import calendar from '/svg/Calendar.svg';
 import clock from '/svg/Clock.svg';
 import home from '/svg/Home.svg';
 import users from '/svg/Users.svg';
-import arrow from '/svg/Arrow.svg';
 
 import Badge from './Badge';
 
@@ -12,12 +11,8 @@ const MeetingItem = ({ type, title, date, time, place, people }: Meeting) => {
   return (
     <div className="meeting-item">
       <h2>
-        <span>
-          <Badge type={type} />
-          {title.slice(0, 26)}
-          {title.length > 26 && '⋯'}
-        </span>
-        <img src={arrow} />
+        <Badge type={type} />
+        {title}
       </h2>
       <p>
         <img src={calendar} />
