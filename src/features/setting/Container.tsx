@@ -1,54 +1,34 @@
-import { Controller } from 'react-hook-form';
+import { useAtom } from 'jotai';
+import { useLayoutEffect } from 'react';
 
-import './style/index.scss';
-import { colorset } from './constants';
+import { bottomBtnAtom, titleAtom } from '../shared/layout/atom';
+
 import useSetting from './hooks/useSetting';
+import './style/index.scss';
+import PreviewSection from './components/PreviewSection';
+import SubmitForm from './components/SubmitForm';
 
 const Container = () => {
-  const { register, handleSubmit, control, onSubmit } = useSetting();
+  const [, setTitle] = useAtom(titleAtom);
+  const [, setBottomBtn] = useAtom(bottomBtnAtom);
+
+  const { handlePreviewClick, handleSubmit, onSubmit, register, control } =
+    useSetting();
+
+  useLayoutEffect(() => {
+    setTitle({ title: 'Active', back: true });
+    setBottomBtn({ text: 'Save' });
+  }, []);
 
   return (
     <div className="setting-container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <span>Today's comment: </span>
-          <input defaultValue="퇴근하고싶다" {...register('comment')} />
-        </div>
-
-        <div>
-          {/* <select {...register('mude')}>
-          {colorset.map((color) => (
-            <option key={color} value={color}>{color}</option>
-          ))}
-        </select> */}
-          <Controller
-            name="mude"
-            control={control}
-            rules={{ required: true }}
-            render={({ field }) => (
-              <fieldset {...field}>
-                {colorset.map((color) => (
-                  <label htmlFor={color} key={color}>
-                    <input
-                      type="radio"
-                      id={color}
-                      name={field.name}
-                      value={color}
-                      checked={field.value === color}
-                      onChange={(e) => {
-                        field.onChange(e.target.value);
-                      }}
-                    />
-                    {color}
-                  </label>
-                ))}
-              </fieldset>
-            )}
-          />
-        </div>
-
-        <input type="submit" />
-      </form>
+      <PreviewSection handlePreviewClick={handlePreviewClick} />
+      <SubmitForm
+        handleSubmit={handleSubmit}
+        onSubmit={onSubmit}
+        register={register}
+        control={control}
+      />
     </div>
   );
 };

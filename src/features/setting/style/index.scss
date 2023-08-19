@@ -1,5 +1,124 @@
 .setting {
   &-container {
     width: 100%;
+    height: calc(100% - 159px);
+    background: #F7F7F7;
   }
+
+  &-preview-container {
+    display: flex;
+    padding: 24px 16px;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    background-color: #FFFFFF;
+  }
+
+  &-preview-title-text {
+    height: fit-content;
+    margin-bottom: 4px;
+    color: #191919;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px; /* 150% */
+  }
+
+  &-preview-sub-text {
+    margin-bottom: 16px;
+    color: #9797AE;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+  }
+
+  &-preview-btn {
+    display: flex;
+    width: 100%;
+    height: 48px;
+    padding: 0px 14px;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border: 1px solid #191919;
+    color: #191919;
+    background-color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  &-word-container {
+    height: 68px;
+    display: flex;
+    gap: 4px;
+    padding: 16px;
+    margin: 12px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    background: #FFFFFF;
+  }
+
+  &-word-title {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+  }
+
+  &-word-input {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    border: 1px solid #191919;
+    height: 40px;
+  }
+
+  &-sticker-container {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    background: #FFF;
+  }
+
+  &-sticker-title {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    margin-bottom: 8px;
+  }
+
+   &-sticker-box {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+    
+    input {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    input:checked {
+      outline: 1px solid #000;
+    }
+   }
+
+   &-sticker-width {
+    width: 48%;
+    img {
+      width: 100%;
+    }
+   }
 }

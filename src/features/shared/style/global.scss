@@ -10,3 +10,8 @@ body {
   min-height: 100vh;
   background-color: $other-area-color;
 }
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
