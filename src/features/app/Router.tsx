@@ -8,6 +8,7 @@ import {
 import LayoutContainer from '../shared/layout/Container';
 import HomeContainer from '../home/Container';
 import LoginContainer from '../login/Container';
+import SettingContainer from '../setting/Container';
 import ErrorContainer from '../shared/error/Container';
 import NotFound from '../shared/error/notfound/NotFound';
 
@@ -23,6 +24,7 @@ const router = createRoutesFromElements(
   >
     <Route index element={<HomeContainer />} />
     <Route path="login" element={<LoginContainer />} />
+    <Route path="setting" element={<SettingContainer />} />
     <Route path="*" element={<NotFound />} />
   </Route>,
 );
