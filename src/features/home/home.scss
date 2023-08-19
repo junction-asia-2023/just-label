@@ -1,5 +1,37 @@
 @import '../shared/style/color';
 
+@mixin icon-box {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	
+	cursor: pointer;
+
+	height: 72px;
+	padding: 0px 16px;
+	gap: 16px;
+
+	.icon-box {
+		width: 36px;
+		height: 36px;
+	}
+
+	.content {
+		width: 100%;
+		padding: 0px 12px;
+
+		.title {
+			font-weight: 500;
+			line-height: 24px;
+		}
+
+		.description {
+			color: $description-sub;
+			font-size: 14px;
+		}
+	}
+}
+
 .profile-box {
 	display: flex;
 	flex-direction: column;
@@ -41,35 +73,24 @@
 	height: 12px;
 	background-color: $other-area-color;
 }
-.active-box {
+.active-box,.preview-box,.event-box,.schedule-box {
+	@include icon-box();
+}
+.footer-box {
 	display: flex;
+	padding-top: 6px;
+	justify-content: center;
 	align-items: center;
-	justify-content: space-between;
-	
-	cursor: pointer;
+	background-color: $other-area-color;
+	height: 48px;
 
-	height: 72px;
-	padding: 8px 16px;
-	gap: 16px;
-
-	.icon-box {
-		width: 36px;
-		height: 36px;
-	}
-
-	.content {
-		// width: 260px;
-		width: 100%;
-		padding: 0px 12px;
-
-		.title {
-			font-weight: 500;
-			line-height: 24px;
-		}
-
-		.description {
-			color: $description-sub;
-			font-size: 14px;
-		}
+	.description {
+		cursor: pointer;
+		text-decoration: underline;
+		color: #1D1D6B;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 24px;
+		letter-spacing: 0em;
 	}
 }
