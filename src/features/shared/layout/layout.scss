@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   height: 61px;
-  padding: 8px;
+  padding: 0px 8px;
   gap: 8px;
 
   &.under-line {
@@ -26,6 +26,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    &.has {
+      cursor: pointer;
+    }
   }
 
   .title {
@@ -35,9 +39,13 @@
     height: 36px;
     padding: 6px 8px;
     gap: 10px;
-    font-weight: 500;
-    font-size: 24px;
+    font-weight: 700;
+    font-size: 16px;
     line-height: 24px;
+
+    .logo {
+      height: 24px;
+    }
   }
 }
 

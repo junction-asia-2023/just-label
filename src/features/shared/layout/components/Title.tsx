@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { titleAtom } from '../atom';
 
+import logo from '/svg/logo.svg';
 import backLogo from '/svg/back.svg';
 
 const LayoutTitle: FunctionComponent = () => {
@@ -18,12 +19,20 @@ const LayoutTitle: FunctionComponent = () => {
 
   return (
     <div className="layout-title under-line">
-      <div className="left">
+      <div className={`left ${back ? 'has' : ''}`}>
         {back && (
           <img src={backLogo} alt="Back Logo" onClick={handleBackClick} />
         )}
       </div>
-      <div className="title">{title}</div>
+      <div className="title">
+        {title === 'CardMe' ? (
+          <div className="logo">
+            <img className="logo" src={logo} alt="logo" />
+          </div>
+        ) : (
+          title
+        )}
+      </div>
       <div className="left" />
     </div>
   );
