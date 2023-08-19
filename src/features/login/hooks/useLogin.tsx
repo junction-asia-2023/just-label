@@ -1,16 +1,20 @@
 import { ChangeEventHandler, ReactEventHandler, useState } from 'react';
 import { useAtom } from 'jotai';
+import { useNavigate } from 'react-router-dom';
 
 import { setItem } from '../../shared/utils/storage';
 import { DummyUser } from '../type';
 import { DUMMY_USER } from '../constants';
 import { userAtom } from '../atom';
+import { URL } from '../../shared/constants/url';
 
 const useLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const [, setUser] = useAtom(userAtom);
+
+  const navigate = useNavigate();
 
   const handleEmailChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setEmail(e.target.value);
@@ -29,7 +33,7 @@ const useLogin = () => {
     delete curUser.password;
     setUser({ ...curUser });
     setItem('user', curUser);
-    // TODO: Redirect Home;
+    navigate(URL.home);
   };
 
   return {

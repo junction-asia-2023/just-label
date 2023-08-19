@@ -1,17 +1,21 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import {
+  QueryClient,
+  QueryClientProvider,
+  QueryErrorResetBoundary,
+} from '@tanstack/react-query';
 import { FunctionComponent } from 'react';
+import { RouterProvider } from 'react-router-dom';
 
-import LayoutContainer from '../shared/layout/Container';
-import HomeContainer from '../home/Container';
+import Router from './Router';
 
 const queryClient = new QueryClient();
 
 const AppContainer: FunctionComponent = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <LayoutContainer>
-        <HomeContainer />
-      </LayoutContainer>
+      <QueryErrorResetBoundary>
+        <RouterProvider router={Router} />
+      </QueryErrorResetBoundary>
     </QueryClientProvider>
   );
 };
