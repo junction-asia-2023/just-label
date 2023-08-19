@@ -1,8 +1,14 @@
-import { previewSubText, previewTitleText } from '../constants';
-import useSetting from '../hooks/useSetting';
+import { FunctionComponent } from 'react';
 
-const PreviewSection = () => {
-  const { handlePreviewClick } = useSetting();
+import { previewSubText, previewTitleText } from '../constants';
+
+type PreviewSectionProps = {
+  handlePreviewClick: () => void;
+};
+
+const PreviewSection: FunctionComponent<PreviewSectionProps> = ({
+  handlePreviewClick,
+}) => {
   return (
     <div className="setting-preview-container">
       <div className="setting-preview-title-text">{previewTitleText}</div>

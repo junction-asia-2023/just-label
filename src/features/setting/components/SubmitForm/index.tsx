@@ -1,15 +1,31 @@
 import { useAtom } from 'jotai';
-import { useEffect } from 'react';
+import { FunctionComponent, useEffect } from 'react';
+import {
+  UseFormHandleSubmit,
+  SubmitHandler,
+  UseFormRegister,
+  Control,
+} from 'react-hook-form';
 
-import LayoutBottomBtn from '../../../shared/layout/components/BottomBtn';
-import useSetting from '../../hooks/useSetting';
 import { activeSaveAtom } from '../../../shared/layout/atom';
+import { Inputs } from '../../types';
 
 import DailySticker from './DailySticker';
 import DailyWord from './DailyWord';
 
-const SubmitForm = () => {
-  const { handleSubmit, onSubmit } = useSetting();
+type SubmitFormProps = {
+  handleSubmit: UseFormHandleSubmit<Inputs, undefined>;
+  onSubmit: SubmitHandler<Inputs>;
+  register: UseFormRegister<Inputs>;
+  control: Control<Inputs, any>;
+};
+
+const SubmitForm: FunctionComponent<SubmitFormProps> = ({
+  handleSubmit,
+  onSubmit,
+  register,
+  control,
+}) => {
   const [activeSave] = useAtom(activeSaveAtom);
 
   useEffect(() => {
@@ -21,9 +37,8 @@ const SubmitForm = () => {
 
   return (
     <form>
-      <DailyWord />
-      <DailySticker />
-      <LayoutBottomBtn />
+      <DailyWord register={register} />
+      <DailySticker control={control} />
     </form>
   );
 };

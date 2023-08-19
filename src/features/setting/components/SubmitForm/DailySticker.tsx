@@ -1,13 +1,17 @@
+import { FunctionComponent } from 'react';
 import { Controller } from 'react-hook-form';
+import { Control } from 'react-hook-form';
 
+import { Inputs } from '../../types';
 import { stickerList, wordStickerText } from '../../constants';
-import useSetting from '../../hooks/useSetting';
 
 import '../../style/index.scss';
 
-const DailySticker = () => {
-  const { control } = useSetting();
+type DailyStickerProps = {
+  control: Control<Inputs, any>;
+};
 
+const DailySticker: FunctionComponent<DailyStickerProps> = ({ control }) => {
   return (
     <div className="setting-sticker-container">
       <span className="setting-sticker-title">{wordStickerText}</span>
@@ -18,7 +22,11 @@ const DailySticker = () => {
         render={({ field }) => (
           <div className="setting-sticker-box" {...field}>
             {stickerList.map((sticker) => (
-              <label htmlFor={sticker} key={sticker}>
+              <label
+                htmlFor={sticker}
+                key={sticker}
+                className="setting-sticker-width"
+              >
                 <input
                   type="radio"
                   id={sticker}

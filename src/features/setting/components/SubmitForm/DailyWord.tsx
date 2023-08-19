@@ -1,9 +1,15 @@
+import { FunctionComponent } from 'react';
+import { UseFormRegister } from 'react-hook-form';
+
+import { Inputs } from '../../types';
 import { wordTitleText } from '../../constants';
-import useSetting from '../../hooks/useSetting';
 import '../../style/index.scss';
 
-const DailyWord = () => {
-  const { register } = useSetting();
+type DailyWordProps = {
+  register: UseFormRegister<Inputs>;
+};
+
+const DailyWord: FunctionComponent<DailyWordProps> = ({ register }) => {
   return (
     <div className="setting-word-container">
       <span className="setting-word-title">{wordTitleText}</span>

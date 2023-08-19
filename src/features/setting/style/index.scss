@@ -1,12 +1,11 @@
 .setting {
   &-container {
     width: 100%;
-    height: calc(100% - 78px);
+    height: calc(100% - 159px);
     background: #F7F7F7;
   }
 
   &-preview-container {
-    height: 176px;
     display: flex;
     padding: 24px 16px;
     flex-direction: column;
@@ -16,7 +15,7 @@
   }
 
   &-preview-title-text {
-    height: 36px;
+    height: fit-content;
     margin-bottom: 4px;
     color: #191919;
     text-align: center;
@@ -27,7 +26,6 @@
   }
 
   &-preview-sub-text {
-    height: 72px;
     margin-bottom: 16px;
     color: #9797AE;
     font-size: 14px;
@@ -102,6 +100,7 @@
     display: flex;
     height: 100%;
     width: 100%;
+    justify-content: space-between;
     align-items: flex-start;
     align-content: flex-start;
     gap: 8px;
@@ -113,6 +112,13 @@
     }
     input:checked {
       outline: 1px solid #000;
+    }
+   }
+
+   &-sticker-width {
+    width: 48%;
+    img {
+      width: 100%;
     }
    }
 }
