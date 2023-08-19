@@ -7,6 +7,7 @@ import { titleAtom } from '../shared/layout/atom';
 import { colorset } from './constants';
 import useSetting from './hooks/useSetting';
 import './style/index.scss';
+import PreviewSection from './components/PreviewSection';
 
 const Container = () => {
   const [, setTitle] = useAtom(titleAtom);
@@ -18,6 +19,7 @@ const Container = () => {
 
   return (
     <div className="setting-container">
+      <PreviewSection />
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <span>Today's comment: </span>
