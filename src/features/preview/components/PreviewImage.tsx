@@ -1,6 +1,5 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import { Dispatch, FunctionComponent } from 'react';
 
 import idCardBasic from '/svg/idcard_basic.svg';
 import idCardMude from '/svg/idcard_mude.svg';
@@ -8,11 +7,14 @@ import meetingAdd from '/svg/meeting_add.svg';
 import meetingCancel from '/svg/meeting_cancel.svg';
 import meeting30 from '/svg/meeting_30.svg';
 
-type PreviewImageType = {
+import { Dispatch, FunctionComponent } from 'react';
+
+type previewImageType = {
   curNum: number;
   setCurNum: Dispatch<number>;
 };
-const PreviewImage: FunctionComponent<PreviewImageType> = ({
+
+const PreviewImage: FunctionComponent<previewImageType> = ({
   curNum,
   setCurNum,
 }) => {

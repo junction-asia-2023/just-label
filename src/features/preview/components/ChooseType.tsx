@@ -1,11 +1,14 @@
-import { MouseEventHandler, useState } from 'react';
+import { FunctionComponent } from 'react';
 
-const ChooseType = () => {
-  const [seletedType, setSeletedType] = useState<string>('A');
-  const handleTypeClick: MouseEventHandler<HTMLDivElement> = (e) => {
-    const target = e.target as HTMLDivElement;
-    setSeletedType(target.dataset.type as string);
-  };
+type ChooseTypeType = {
+  seletedType: string;
+  handleTypeClick: React.MouseEventHandler<HTMLDivElement>;
+};
+
+const ChooseType: FunctionComponent<ChooseTypeType> = ({
+  seletedType,
+  handleTypeClick,
+}) => {
   return (
     <div className="preview-choose-type-container">
       <div
