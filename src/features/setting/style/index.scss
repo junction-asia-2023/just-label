@@ -6,7 +6,7 @@
     margin-bottom: 12px;
   }
 
-  &-preview-box {
+  &-preview-container {
     height: 176px;
     display: flex;
     padding: 24px 16px;
@@ -49,4 +49,70 @@
     color: #191919;
     background-color: #FFFFFF;
   }
+
+  &-word-container {
+    height: 68px;
+    display: flex;
+    gap: 4px;
+    padding: 16px;
+    margin: 12px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    background: #FFFFFF;
+  }
+
+  &-word-title {
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 171.429% */
+  }
+
+  &-word-input {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    border: 1px solid #191919;
+    height: 40px;
+  }
+
+  &-sticker-container {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    background: #FFF;
+  }
+
+  &-sticker-title {
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    margin-bottom: 8px;
+  }
+
+   &-sticker-box {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+    
+    input {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    input:checked {
+      outline: 1px solid #000;
+    }
+   }
 }

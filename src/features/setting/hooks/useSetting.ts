@@ -7,8 +7,8 @@ import { URL } from '../../shared/constants/url';
 const useSetting = () => {
   const { register, handleSubmit, control } = useForm<Inputs>({
     defaultValues: {
-      mude: 'green',
-      comment: '퇴근!',
+      mude: '',
+      comment: '',
     },
   });
   const navigate = useNavigate();
