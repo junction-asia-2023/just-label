@@ -1,11 +1,20 @@
 import { Controller } from 'react-hook-form';
+import { useAtom } from 'jotai';
+import { useLayoutEffect } from 'react';
 
-import './style/index.scss';
+import { titleAtom } from '../shared/layout/atom';
+
 import { colorset } from './constants';
 import useSetting from './hooks/useSetting';
+import './style/index.scss';
 
 const Container = () => {
+  const [, setTitle] = useAtom(titleAtom);
   const { register, handleSubmit, control, onSubmit } = useSetting();
+
+  useLayoutEffect(() => {
+    setTitle({ title: 'Active', back: true });
+  }, []);
 
   return (
     <div className="setting-container">
@@ -16,11 +25,6 @@ const Container = () => {
         </div>
 
         <div>
-          {/* <select {...register('mude')}>
-          {colorset.map((color) => (
-            <option key={color} value={color}>{color}</option>
-          ))}
-        </select> */}
           <Controller
             name="mude"
             control={control}
