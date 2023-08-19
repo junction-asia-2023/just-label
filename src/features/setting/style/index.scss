@@ -2,7 +2,7 @@
   &-container {
     width: 100%;
     height: calc(100% - 159px);
-    background: #F7F7F7;
+    background: #f7f7f7;
   }
 
   &-preview-container {
@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     align-self: stretch;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
 
   &-preview-title-text {
@@ -27,7 +27,7 @@
 
   &-preview-sub-text {
     margin-bottom: 16px;
-    color: #9797AE;
+    color: #9797ae;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -44,8 +44,13 @@
     align-self: stretch;
     border: 1px solid #191919;
     color: #191919;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     cursor: pointer;
+    border-radius: 4px;
+  }
+
+  &-preview-btn:disabled {
+    opacity: 0.3;
   }
 
   &-word-container {
@@ -57,23 +62,32 @@
     flex-direction: column;
     align-items: flex-start;
     align-self: stretch;
-    background: #FFFFFF;
+    background: #ffffff;
   }
 
   &-word-title {
-    color: #000;
-    font-size: 14px;
+    color: #191919;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 500;
-    line-height: 24px; /* 171.429% */
+    font-weight: 700;
+    line-height: 24px; /* 150% */
   }
 
   &-word-input {
     display: flex;
     align-items: center;
     align-self: stretch;
-    border: 1px solid #191919;
+    border-radius: 4px;
+    border: 1px solid #e3e3e3;
+    background: #f7f7f7;
+    padding: 8px 14px;
     height: 40px;
+  }
+
+  &-word-input::placeholder {
+    color: #b2b2c8;
+    font-size: 16px;
+    font-weight: 400;
   }
 
   &-sticker-container {
@@ -84,19 +98,19 @@
     gap: 8px;
     flex: 1 0 0;
     align-self: stretch;
-    background: #FFF;
+    background: #fff;
   }
 
   &-sticker-title {
-    color: #000;
+    color: #191919;
     font-size: 16px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 24px; /* 150% */
     margin-bottom: 8px;
   }
 
-   &-sticker-box {
+  &-sticker-box {
     display: flex;
     height: 100%;
     width: 100%;
@@ -105,7 +119,7 @@
     align-content: flex-start;
     gap: 8px;
     flex-wrap: wrap;
-    
+
     input {
       appearance: none;
       -webkit-appearance: none;
@@ -113,12 +127,12 @@
     input:checked {
       outline: 1px solid #000;
     }
-   }
+  }
 
-   &-sticker-width {
+  &-sticker-width {
     width: 48%;
     img {
       width: 100%;
     }
-   }
+  }
 }
