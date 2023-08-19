@@ -7,6 +7,6 @@ import { homepage } from './package.json';
 export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
-    base: mode === 'production' && homepage,
+    base: mode === 'production' ? homepage : '/',
   };
 });
