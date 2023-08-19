@@ -31,7 +31,9 @@
 		}
 	}
 }
-
+.home-container {
+	height: calc(100vh - 77px);
+}
 .profile-box {
 	display: flex;
 	flex-direction: column;
@@ -44,6 +46,8 @@
 		justify-content: center;
 
 		.image {
+			border-radius: 50px;
+			border: 1px solid $description-sub;
 			width: 100px;
 			height: 100px;
 		}
@@ -78,11 +82,10 @@
 }
 .footer-box {
 	display: flex;
-	padding-top: 6px;
+	padding-top: 24px;
 	justify-content: center;
 	align-items: center;
-	background-color: $other-area-color;
-	height: 48px;
+	background-color: #ffffff;
 
 	.description {
 		cursor: pointer;

@@ -1,9 +1,7 @@
 import { FunctionComponent } from 'react';
 
 const Footer: FunctionComponent = () => {
-  const handleDescriptionClick = () => {
-    window.location.href = 'https://www.naver.com';
-  };
+  const handleDescriptionClick = () => {};
 
   return (
     <div className="footer-box">

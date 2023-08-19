@@ -12,7 +12,7 @@ const HomeContainer = () => {
   useHomeContainer();
 
   return (
-    <>
+    <div className="home-container">
       <Profile />
       <GrayBar />
       <Active />
@@ -20,9 +20,8 @@ const HomeContainer = () => {
       <GrayBar />
       <Schedule />
       <Event />
-      <GrayBar />
       <Footer />
-    </>
+    </div>
   );
 };
 
