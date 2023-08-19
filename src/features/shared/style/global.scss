@@ -1,0 +1,11 @@
+@import './variable';
+
+* { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
+
+body {
+  margin: 0;
+  display: flex;
+  place-content: center;
+  min-width: $min-width;
+  min-height: 100vh;
+}
