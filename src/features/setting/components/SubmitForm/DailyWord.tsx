@@ -13,7 +13,11 @@ const DailyWord: FunctionComponent<DailyWordProps> = ({ register }) => {
   return (
     <div className="setting-word-container">
       <span className="setting-word-title">{wordTitleText}</span>
-      <input className="setting-word-input" {...register('comment')} />
+      <input
+        className="setting-word-input"
+        placeholder="Please write a word to describe you."
+        {...register('comment', { required: true })}
+      />
     </div>
   );
 };
