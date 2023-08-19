@@ -7,6 +7,9 @@
   "scripts": {
     "dev": "yarn && vite",
     "build": "tsc && vite build",
+    "fix:eslint": "eslint src --fix --ext ts,tsx --report-unused-disable-directives",
+    "fix:prettier": "prettier --write --list-different \"src/**/*.{ts,tsx}\"",
+    "fix": "npm-run-all -p --print-label \"fix:**\"",
     "lint:eslint": "eslint src --ext ts,tsx --report-unused-disable-directives",
     "lint:prettier": "prettier --list-different \"src/**/*.{ts,tsx}\"",
     "lint": "npm-run-all -p --print-label \"lint:**\"",
