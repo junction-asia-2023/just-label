@@ -9,7 +9,7 @@ const LayoutBottomBtn: FunctionComponent = () => {
   const [{ text, add }] = useAtom(bottomBtnAtom);
   const [, setActiveSave] = useAtom(activeSaveAtom);
 
-  if (!text) return <div className="layout-bottom" />;
+  if (!text) return null;
 
   return (
     <div className="layout-bottom">

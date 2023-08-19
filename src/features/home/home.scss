@@ -18,7 +18,7 @@
 
 	.content {
 		width: 100%;
-		padding: 0px 12px;
+		padding: 0px;
 
 		.title {
 			font-weight: 500;
@@ -47,7 +47,7 @@
 
 		.image {
 			border-radius: 50px;
-			border: 1px solid $description-sub;
+			border: 1px solid #E9E9F1;
 			width: 100px;
 			height: 100px;
 		}

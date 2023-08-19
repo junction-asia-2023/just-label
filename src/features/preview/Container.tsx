@@ -16,6 +16,11 @@ const Container = () => {
   useLayoutEffect(() => {
     setTitle({ title: 'CardMe Preview', back: true });
     setBottomBtn({ text: 'Modification' });
+
+    return () => {
+      setTitle({});
+      setBottomBtn({});
+    };
   }, []);
 
   return (

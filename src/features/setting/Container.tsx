@@ -18,6 +18,11 @@ const Container = () => {
   useLayoutEffect(() => {
     setTitle({ title: 'Active', back: true });
     setBottomBtn({ text: 'Save' });
+
+    return () => {
+      setTitle({});
+      setBottomBtn({});
+    };
   }, []);
 
   return (
