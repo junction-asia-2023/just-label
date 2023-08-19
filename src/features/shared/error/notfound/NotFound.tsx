@@ -1,12 +1,13 @@
 import { FunctionComponent } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-import { URL } from '../../constants/url';
 import './notfound.scss';
+import { removeItem } from '../../utils/storage';
 
 const NotFound: FunctionComponent = () => {
-  const navigate = useNavigate();
-  const handleHomeClick = () => navigate(URL.home);
+  const handleHomeClick = () => {
+    removeItem('user');
+    window.location.reload();
+  };
 
   return (
     <div className="not-found">
