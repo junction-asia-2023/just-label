@@ -1,8 +1,9 @@
 import { FunctionComponent } from 'react';
 
 import useLogin from './hooks/useLogin';
-import logo from './logo.svg';
 import './style/index.scss';
+
+import logo from '/svg/logo.svg';
 
 const LoginContainer: FunctionComponent = () => {
   const { errors, register, handleSubmit, onSubmit } = useLogin();
