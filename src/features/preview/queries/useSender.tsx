@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import html2canvas from 'html2canvas';
-import { useRef } from 'react';
 import axios from 'axios';
+import { useRef } from 'react';
 
 import {
   dummyEsl,
@@ -9,9 +9,9 @@ import {
   labelsImagePushPath,
   token,
   width,
-} from './constants';
+} from '../constants';
 
-const LabelSender = ({ children }: { children: React.ReactNode }) => {
+const useSender = () => {
   const domRef = useRef<HTMLDivElement>(null);
 
   const mutation = useMutation({
@@ -49,7 +49,7 @@ const LabelSender = ({ children }: { children: React.ReactNode }) => {
     },
   });
 
-  const handleCreatePreviewClick = async () => {
+  const handleSendEslClick = async () => {
     if (domRef.current) {
       const canvas = await html2canvas(domRef.current, {
         width,
@@ -59,14 +59,7 @@ const LabelSender = ({ children }: { children: React.ReactNode }) => {
       mutation.mutate({ img: canvas.toDataURL() });
     }
   };
-  return (
-    <>
-      <div ref={domRef} style={{ width, height }}>
-        {children}
-      </div>
-      <button onClick={handleCreatePreviewClick}>Send esl</button>
-    </>
-  );
+  return { domRef, handleSendEslClick };
 };
 
-export default LabelSender;
+export default useSender;
