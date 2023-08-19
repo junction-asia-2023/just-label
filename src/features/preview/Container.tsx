@@ -13,21 +13,27 @@ import usePreview from './hooks/usePreview';
 const Container = () => {
   const [, setTitle] = useAtom(titleAtom);
   const [, setBottomBtn] = useAtom(bottomBtnAtom);
-  const { curNum, setCurNum } = usePreview();
+
+  const { seletedType, handleTypeClick, curNum, setCurNum } = usePreview();
+
   useLayoutEffect(() => {
     setTitle({ title: 'CardMe Preview', back: true });
-    setBottomBtn({ text: 'Modification' });
+    setBottomBtn({ text: 'Modification', disable: curNum !== 1 });
 
     return () => {
       setTitle({});
       setBottomBtn({});
     };
-  }, []);
+  }, [curNum]);
 
   return (
     <div className="preview-container">
-      <ChooseType />
-      <PreviewImage curNum={curNum} setCurNum={setCurNum} />
+      <ChooseType seletedType={seletedType} handleTypeClick={handleTypeClick} />
+      <PreviewImage
+        seletedType={seletedType}
+        curNum={curNum}
+        setCurNum={setCurNum}
+      />
       <BottomText curNum={curNum} />
     </div>
   );
