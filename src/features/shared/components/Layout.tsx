@@ -2,7 +2,7 @@ import { FunctionComponent, PropsWithChildren } from 'react';
 import '../style/index.scss';
 
 const Layout: FunctionComponent<PropsWithChildren> = ({ children }) => {
-  return <div className="root-container">{children}</div>;
+  return <div className="layout-container">{children}</div>;
 };
 
 export default Layout;
