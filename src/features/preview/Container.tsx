@@ -29,7 +29,11 @@ const Container = () => {
   return (
     <div className="preview-container">
       <ChooseType seletedType={seletedType} handleTypeClick={handleTypeClick} />
-      <PreviewImage curNum={curNum} setCurNum={setCurNum} />
+      <PreviewImage
+        seletedType={seletedType}
+        curNum={curNum}
+        setCurNum={setCurNum}
+      />
       <BottomText curNum={curNum} />
     </div>
   );

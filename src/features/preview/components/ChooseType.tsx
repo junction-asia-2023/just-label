@@ -20,7 +20,7 @@ const ChooseType: FunctionComponent<ChooseTypeType> = ({
         onClick={handleTypeClick}
         data-type="A"
       >
-        CardMe Type A
+        Type A
       </div>
       <div
         className={
@@ -31,7 +31,7 @@ const ChooseType: FunctionComponent<ChooseTypeType> = ({
         onClick={handleTypeClick}
         data-type="B"
       >
-        CardMe Type B
+        Type B
       </div>
     </div>
   );

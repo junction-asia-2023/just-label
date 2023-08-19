@@ -6,25 +6,40 @@ import idCardMude from '/svg/idcard_mude.svg';
 import meetingAdd from '/svg/meeting_add.svg';
 import meetingCancel from '/svg/meeting_cancel.svg';
 import meeting30 from '/svg/meeting_30.svg';
+import idCardBasicB from '/svg/idcard_basic_B.svg';
+import idCardMudeB from '/svg/idcard_mude_B.svg';
+import meetingAddB from '/svg/meeting_add_B.svg';
+import meetingCancelB from '/svg/meeting_cancel_B.svg';
+import meeting30B from '/svg/meeting_30_B.svg';
 
 import { Dispatch, FunctionComponent } from 'react';
 
 type previewImageType = {
+  seletedType: string;
   curNum: number;
   setCurNum: Dispatch<number>;
 };
 
 const PreviewImage: FunctionComponent<previewImageType> = ({
+  seletedType,
   curNum,
   setCurNum,
 }) => {
-  const imageList = [
+  const imageListA = [
     idCardBasic,
     idCardMude,
     meetingAdd,
     meetingCancel,
     meeting30,
   ];
+  const imageListB = [
+    idCardBasicB,
+    idCardMudeB,
+    meetingAddB,
+    meetingCancelB,
+    meeting30B,
+  ];
+  const imageList = seletedType === 'A' ? imageListA : imageListB;
   return (
     <>
       <div className="preview-image-container">
