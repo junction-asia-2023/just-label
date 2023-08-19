@@ -72,4 +72,8 @@
   background: #191919;
   color: #FFF;
   cursor: pointer;
+  &:disabled {
+    opacity: 30%;
+    cursor: default;
+  }
 }
