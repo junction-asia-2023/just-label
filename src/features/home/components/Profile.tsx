@@ -3,9 +3,10 @@ import { FunctionComponent } from 'react';
 
 import { userAtom } from '../../login/atom';
 
+import profileImage from '/png/yulim.png';
+
 const Profile: FunctionComponent = () => {
-  const [{ email, profileImage, department, name, position }] =
-    useAtom(userAtom);
+  const [{ email, department, name, position }] = useAtom(userAtom);
 
   return (
     <section className="profile-box">

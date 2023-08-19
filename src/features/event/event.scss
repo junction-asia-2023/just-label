@@ -12,6 +12,24 @@
 		transform: rotate(0deg);
 	}
 }
+@keyframes open-top {
+	0% {
+		padding-top: 7rem;
+		padding-bottom: 0rem;
+	}
+	100% {
+		padding-top: 4rem;
+		padding-bottom: 2rem;
+	}
+}
+@keyframes open-bottom {
+	0% {
+		padding-bottom: 0rem;
+	}
+	100% {
+		padding-bottom: 4rem;
+	}
+}
 
 .event-container {
 	height: calc(100vh - 77px);
@@ -23,11 +41,15 @@
 		align-items: center;
 
 		.content {
-			padding-top: 183px;
+			padding-top: 7rem;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+
+			&.open {
+				animation: open-top 0.5s both;
+			}
 			
 			.label {
 				color: #ffffff;
@@ -50,6 +72,11 @@
 		}
 		.gift {
 			cursor: pointer;
+			height: 250px;
+
+			&.open {
+				animation: open-bottom 0.5s both;
+			}
 			
 			:hover {
 				animation: shake 1s infinite ease-in;

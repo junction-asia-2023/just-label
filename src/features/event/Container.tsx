@@ -11,16 +11,24 @@ const EventContainer: FunctionComponent = () => {
   return (
     <div className="event-container">
       <div className="wrap">
-        <div className="content">
+        <div className={`content ${open ? 'open' : ''}`}>
           <span className="label">JUNCTION Event</span>
           <div className="title">
             Who is the lucky one who got the winning gift?
           </div>
         </div>
-        <div className="gift" onClick={handleImageClick}>
-          <img src={open ? giftOpenLogo : giftLogo} alt="gift" />
+        <div
+          className={`gift ${open ? 'open' : ''}`}
+          onClick={handleImageClick}
+        >
+          <img
+            width={open ? '250' : '170'}
+            height={open ? '250' : '170'}
+            src={open ? giftOpenLogo : giftLogo}
+            alt="gift"
+          />
         </div>
-        <div className="description">
+        <div className={`description`}>
           Press the gift box and check the winning results
         </div>
       </div>
