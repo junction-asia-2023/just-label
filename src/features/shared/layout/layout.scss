@@ -41,3 +41,28 @@
     line-height: 24px;
   }
 }
+
+.layout-bottom {
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  border-top: 1px solid #E9E9F1;
+  background: #FFF;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.layout-bottom-btn {
+  display: flex;
+  height: 48px;
+  padding: 0px 14px;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  gap: 8px;
+  background: #191919;
+  color: #FFF;
+}
