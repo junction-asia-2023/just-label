@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import { FunctionComponent, useEffect } from 'react';
+import { FunctionComponent, useEffect, useRef } from 'react';
 import {
   UseFormHandleSubmit,
   SubmitHandler,
@@ -26,19 +26,21 @@ const SubmitForm: FunctionComponent<SubmitFormProps> = ({
   register,
   control,
 }) => {
-  const [activeSave] = useAtom(activeSaveAtom);
+  const [activeSave, setActiveSave] = useAtom(activeSaveAtom);
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (activeSave) {
-      console.log('touched?');
-      handleSubmit(onSubmit);
-    }
+    if (!activeSave) return;
+    setActiveSave(false);
+    inputRef.current?.click();
   }, [activeSave]);
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <DailyWord register={register} />
       <DailySticker control={control} />
+      <input ref={inputRef} type="submit" style={{ visibility: 'hidden' }} />
     </form>
   );
 };
