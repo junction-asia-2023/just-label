@@ -1,7 +1,10 @@
 export type User = {
+  name?: string;
+  profileImage?: string;
   email?: string;
   companyNo?: string;
   department?: string;
+  position?: string;
 };
 export type DummyUser = User & { password?: string };
 

@@ -1,0 +1,39 @@
+@import '../shared/style/color';
+
+.profile-box {
+	display: flex;
+	flex-direction: column;
+
+	padding: 24px 16px 16px 16px;
+	gap: 24px;
+
+	.image-box {
+		display: flex;
+		justify-content: center;
+
+		.image {
+			width: 100px;
+			height: 100px;
+		}
+	}
+
+	.list-box {
+		display: flex;
+		flex-direction: column;
+
+		gap: 16px;
+
+		.list {
+			display: flex;
+			height: 24px;
+			gap: 16px;
+
+			.name {
+				width: 100px;
+			}
+			.description {
+				color: $description-gray;
+			}
+		}
+	}
+}
