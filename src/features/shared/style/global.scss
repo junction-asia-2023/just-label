@@ -6,6 +6,10 @@ body {
   margin: 0;
   display: flex;
   place-content: center;
-  min-width: $min-width;
   min-height: 100vh;
+}
+
+.layout-container {
+  min-width: 320px;
+  max-width: 480px;
 }
