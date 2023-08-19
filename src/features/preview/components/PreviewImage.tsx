@@ -1,6 +1,6 @@
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import { useState } from 'react';
+import { Dispatch, FunctionComponent } from 'react';
 
 import idCardBasic from '/svg/idcard_basic.svg';
 import idCardMude from '/svg/idcard_mude.svg';
@@ -8,8 +8,14 @@ import meetingAdd from '/svg/meeting_add.svg';
 import meetingCancel from '/svg/meeting_cancel.svg';
 import meeting30 from '/svg/meeting_30.svg';
 
-const PreviewImage = () => {
-  const [curNum, setCurNum] = useState<number>(0);
+type PreviewImageType = {
+  curNum: number;
+  setCurNum: Dispatch<number>;
+};
+const PreviewImage: FunctionComponent<PreviewImageType> = ({
+  curNum,
+  setCurNum,
+}) => {
   const imageList = [
     idCardBasic,
     idCardMude,
@@ -17,7 +23,6 @@ const PreviewImage = () => {
     meetingCancel,
     meeting30,
   ];
-  console.log(curNum);
   return (
     <>
       <div className="preview-image-container">
@@ -29,7 +34,8 @@ const PreviewImage = () => {
             showIndicators={false}
             autoPlay
             infiniteLoop
-            onChange={(index) => {
+            selectedItem={curNum}
+            onChange={(index, _) => {
               setCurNum(index);
             }}
           >
@@ -51,6 +57,9 @@ const PreviewImage = () => {
                   ? 'preview-carousel-circle-black'
                   : 'preview-carousel-circle-gray'
               }
+              onClick={() => {
+                setCurNum(idx);
+              }}
             ></div>
           );
         })}
