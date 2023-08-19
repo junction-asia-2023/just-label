@@ -14,6 +14,7 @@ import NotFound from '../shared/error/notfound/NotFound';
 import PreviewContainer from '../preview/Container';
 import ScheduleContainer from '../schedule/Container';
 import EventContainer from '../event/Container';
+import ModalContainer from '../shared/modal/Container';
 
 const router = createRoutesFromElements(
   <Route
@@ -21,6 +22,7 @@ const router = createRoutesFromElements(
     element={
       <Suspense>
         <LayoutContainer />
+        <ModalContainer />
       </Suspense>
     }
     errorElement={<ErrorContainer />}
