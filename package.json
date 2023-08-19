@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "description": "Junction2023 just team",
+  "homepage": "https://junction-asia-2023.github.io/just-label/",
   "scripts": {
     "dev": "yarn && vite",
     "build": "tsc && vite build",
