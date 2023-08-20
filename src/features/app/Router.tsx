@@ -37,4 +37,6 @@ const router = createRoutesFromElements(
   </Route>,
 );
 
-export default createBrowserRouter(router);
+export default createBrowserRouter(router, {
+  basename: '/just-label',
+});
