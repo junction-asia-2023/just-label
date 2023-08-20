@@ -5,8 +5,9 @@ import win from '/svg/win.svg';
 import next from '/svg/next.svg';
 import idCard from '/svg/idcard_basic.svg';
 
-import { Modal, modalAtom } from './atom';
 import { previewMoodAtom } from '../layout/atom';
+
+import { Modal, modalAtom } from './atom';
 import './modal.scss';
 
 const ModalContainer = () => {

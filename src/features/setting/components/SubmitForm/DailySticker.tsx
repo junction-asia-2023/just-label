@@ -1,14 +1,16 @@
 import { FunctionComponent } from 'react';
 import { Controller } from 'react-hook-form';
 import { Control } from 'react-hook-form';
+import { useAtom } from 'jotai';
 
 import { Inputs } from '../../types';
 import { stickerList, stickerText, wordStickerText } from '../../constants';
 
 import moodBad from '/png/mood_BAD.png';
 import moodGood from '/png/mood_GOOD.png';
+
 import '../../style/index.scss';
-import { useAtom } from 'jotai';
+
 import { previewMoodAtom } from '../../../shared/layout/atom';
 
 type DailyStickerProps = {

@@ -1,11 +1,10 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 import { useMutation } from '@tanstack/react-query';
+import { useAtom } from 'jotai';
 
 import { Inputs } from '../types';
-
 import { previewMoodAtom } from '../../shared/layout/atom';
-import { useAtom } from 'jotai';
 
 import goodMood from '/png/badge_good.png';
 import badMood from '/png/badge_bad.png';
@@ -40,8 +39,8 @@ const useSetting = () => {
   };
 
   const handlePreviewClick = () => {
-    setPreviewMood((prev) => ({...prev, open: true}))
-    setModal({open: true})
+    setPreviewMood((prev) => ({ ...prev, open: true }));
+    setModal({ open: true });
   };
 
   const mutation = useMutation({
