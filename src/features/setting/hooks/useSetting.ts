@@ -1,24 +1,22 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useMutation } from '@tanstack/react-query';
+import { useAtom } from 'jotai';
 
 import { Inputs } from '../types';
-import { URL } from '../../shared/constants/url';
+import { previewMoodAtom } from '../../shared/layout/atom';
 
 import goodMood from '/png/badge_good.png';
 import badMood from '/png/badge_bad.png';
 
 import { dummyEsl, labelsImagePushPath, token } from '../constants';
+import { modalAtom } from '../../shared/modal/atom';
 
 const useSetting = () => {
-  const { register, handleSubmit, control, formState } = useForm<Inputs>({
-    defaultValues: {
-      mood: '',
-      comment: '',
-    },
-  });
-  const navigate = useNavigate();
+  const [, setModal] = useAtom(modalAtom);
+  const [, setPreviewMood] = useAtom(previewMoodAtom);
+
+  const { register, handleSubmit, control, formState } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const imgEl = document.createElement('img');
     imgEl.src = data.mood === 'mood_GOOD' ? goodMood : badMood; //TODO 이래도 될까
@@ -41,7 +39,8 @@ const useSetting = () => {
   };
 
   const handlePreviewClick = () => {
-    navigate(URL.preview);
+    setPreviewMood((prev) => ({ ...prev, open: true }));
+    setModal({ open: true });
   };
 
   const mutation = useMutation({

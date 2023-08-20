@@ -3,14 +3,19 @@ import { useResetAtom } from 'jotai/utils';
 
 import win from '/svg/win.svg';
 import next from '/svg/next.svg';
+import idCard from '/svg/idcard_basic.svg';
+
+import { previewMoodAtom } from '../layout/atom';
 
 import { Modal, modalAtom } from './atom';
 import './modal.scss';
 
 const ModalContainer = () => {
   const [modal] = useAtom(modalAtom);
+  const [previewMood] = useAtom(previewMoodAtom);
   const resetModal = useResetAtom(modalAtom);
 
+  console.log(previewMood);
   if (!modal.open) return null;
   const { imageType, onClose, title, description, footer, onConfirm } =
     modal as Modal;
@@ -33,25 +38,39 @@ const ModalContainer = () => {
     onConfirm?.();
     resetModal();
   };
-
+  console.log(previewMood);
   return (
     <div className="modal-container">
       <div className="content">
         <span className="close-btn" onClick={handleCloseClick}>
           &times;
         </span>
-        <img src={imageSrc} alt="win" />
-        <div>
-          <div className="title">{title}</div>
-          <div className="description">{description}</div>
-        </div>
-        <div className="footer">
-          {onConfirm && (
-            <button className="button" onClick={handleConfirmClick}>
-              Download
-            </button>
-          )}
-        </div>
+        {previewMood.open || modal.open ? (
+          <>
+            <div className="modal-preview-title">Preview</div>
+            <div className="modal-preview-box">
+              <img src={idCard} alt="preview" />
+              <div className="modal-sticker-picked">
+                <img src={`/png/mood_${previewMood.value}.png`} alt="preview" />
+              </div>
+            </div>
+          </>
+        ) : (
+          <>
+            <img src={imageSrc} alt="win" />
+            <div>
+              <div className="title">{title}</div>
+              <div className="description">{description}</div>
+            </div>
+            <div className="footer">
+              {onConfirm && (
+                <button className="button" onClick={handleConfirmClick}>
+                  Download
+                </button>
+              )}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

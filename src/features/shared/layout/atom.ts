@@ -15,3 +15,9 @@ type BottomBtnAtom = {
 export const bottomBtnAtom = atom<BottomBtnAtom>({});
 
 export const activeSaveAtom = atom<boolean>(false);
+
+type PreviewMoodAtom = {
+  open?: boolean;
+  value?: string;
+};
+export const previewMoodAtom = atom<PreviewMoodAtom>({});
