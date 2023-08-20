@@ -8,12 +8,15 @@ import { stickerList, stickerText, wordStickerText } from '../../constants';
 import moodBad from '/png/mood_BAD.png';
 import moodGood from '/png/mood_GOOD.png';
 import '../../style/index.scss';
+import { useAtom } from 'jotai';
+import { previewMoodAtom } from '../../../shared/layout/atom';
 
 type DailyStickerProps = {
   control: Control<Inputs, any>;
 };
 
 const DailySticker: FunctionComponent<DailyStickerProps> = ({ control }) => {
+  const [, setPreviewMood] = useAtom(previewMoodAtom);
   return (
     <div className="setting-sticker-container">
       <span className="setting-sticker-title">{wordStickerText}</span>
@@ -44,6 +47,10 @@ const DailySticker: FunctionComponent<DailyStickerProps> = ({ control }) => {
                   checked={field.value === sticker}
                   onChange={(e) => {
                     field.onChange(e.target.value);
+                    setPreviewMood((prev) => ({
+                      ...prev,
+                      value: stickerText[idx],
+                    }));
                   }}
                 />
                 <img
