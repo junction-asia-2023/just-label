@@ -35,10 +35,10 @@ const ModalContainer = () => {
     resetModal();
     setPreviewMood({ open: false });
   };
-  const handleConfirmClick = () => {
-    onConfirm?.();
-    resetModal();
-  };
+  // const handleConfirmClick = () => {
+  //   onConfirm?.();
+  //   resetModal();
+  // };
   return (
     <div className="modal-container">
       <div className="content">

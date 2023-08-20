@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { setItem } from '../../shared/utils/storage';
 import { DummyUser, InputKey } from '../type';
-import { DUMMY_USER, DUMMY_USERS } from '../constants';
+import { DUMMY_USERS } from '../constants';
 import { userAtom } from '../atom';
 import { URL } from '../../shared/constants/url';
 
