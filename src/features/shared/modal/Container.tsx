@@ -67,13 +67,6 @@ const ModalContainer = () => {
               <div className="title">{title}</div>
               <div className="description">{description}</div>
             </div>
-            <div className="footer">
-              {onConfirm && (
-                <button className="button" onClick={handleConfirmClick}>
-                  Download
-                </button>
-              )}
-            </div>
           </>
         )}
       </div>

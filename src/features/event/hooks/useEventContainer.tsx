@@ -3,11 +3,13 @@ import { useLayoutEffect, useState } from 'react';
 
 import { titleAtom } from '../../shared/layout/atom';
 import { modalAtom } from '../../shared/modal/atom';
+import { userAtom } from '../../login/atom';
 
 const useEventContainer = () => {
   const [open, setOpen] = useState(false);
   const [, setTitle] = useAtom(titleAtom);
   const [, setModal] = useAtom(modalAtom);
+  const [user] = useAtom(userAtom);
 
   useLayoutEffect(() => {
     setTitle({ back: true, title: 'Event' });
@@ -35,7 +37,7 @@ const useEventContainer = () => {
         description:
           'I missed the opportunity this time, but try to get the prize for the next event.',
       };
-      setModal(Date.now() % 2 === 0 ? next : win);
+      setModal(user.special ? win : next);
     }, 500);
   };
 
