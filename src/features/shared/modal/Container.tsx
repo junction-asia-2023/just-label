@@ -15,10 +15,8 @@ const ModalContainer = () => {
   const [previewMood] = useAtom(previewMoodAtom);
   const resetModal = useResetAtom(modalAtom);
 
-  console.log(previewMood);
   if (!modal.open) return null;
-  const { imageType, onClose, title, description, footer, onConfirm } =
-    modal as Modal;
+  const { imageType, onClose, title, description, onConfirm } = modal as Modal;
 
   const imageSrc = (() => {
     switch (imageType) {
