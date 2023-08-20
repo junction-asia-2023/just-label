@@ -6,6 +6,7 @@ export type User = {
   position?: string;
   comment?: string;
   mood?: string;
+  special?: boolean;
 };
 export type DummyUser = User & { password?: string };
 
