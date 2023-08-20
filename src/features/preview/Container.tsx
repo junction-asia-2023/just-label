@@ -18,7 +18,7 @@ const Container = () => {
 
   useLayoutEffect(() => {
     setTitle({ title: 'CardMe Preview', back: true });
-    setBottomBtn({ text: 'Modification', disable: curNum !== 1 });
+    setBottomBtn({ text: 'Edit', disable: curNum !== 1 });
 
     return () => {
       setTitle({});

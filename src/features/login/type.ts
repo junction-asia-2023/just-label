@@ -4,6 +4,8 @@ export type User = {
   companyNo?: string;
   department?: string;
   position?: string;
+  comment?: string;
+  mood?: string;
 };
 export type DummyUser = User & { password?: string };
 

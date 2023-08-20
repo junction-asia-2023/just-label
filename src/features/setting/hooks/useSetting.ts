@@ -11,14 +11,26 @@ import badMood from '/png/badge_bad.png';
 
 import { dummyEsl, labelsImagePushPath, token } from '../constants';
 import { modalAtom } from '../../shared/modal/atom';
+import { userAtom } from '../../login/atom';
 
 const useSetting = () => {
   const [, setModal] = useAtom(modalAtom);
   const [, setPreviewMood] = useAtom(previewMoodAtom);
+  const [{ mood, comment }, setUser] = useAtom(userAtom);
+  const { register, handleSubmit, control, formState } = useForm<Inputs>({
+    defaultValues: {
+      mood: mood,
+      comment: comment,
+    },
+  });
 
-  const { register, handleSubmit, control, formState } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const imgEl = document.createElement('img');
+    setUser((prev) => ({
+      ...prev,
+      mood: data.mood,
+      comment: data.comment,
+    }));
     imgEl.src = data.mood === 'mood_GOOD' ? goodMood : badMood; //TODO 이래도 될까
 
     fetch(imgEl.src)
@@ -39,7 +51,10 @@ const useSetting = () => {
   };
 
   const handlePreviewClick = () => {
-    setPreviewMood((prev) => ({ ...prev, open: true }));
+    setPreviewMood((prev) => ({
+      value: mood ? mood.slice(5) : prev.value,
+      open: true,
+    }));
     setModal({ open: true });
   };
 
